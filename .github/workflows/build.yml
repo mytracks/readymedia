@@ -29,4 +29,4 @@ jobs:
             --platform linux/amd64,linux/arm/v7,linux/arm64 \
             --output "type=image,push=true" \
             --file ./Dockerfile . \
-            --target mytracks/readymedia:latest
+            --tag mytracks/readymedia:latest
