@@ -1,33 +1,13 @@
-FROM ubuntu:16.04
+FROM alpine:3.10
 LABEL MAINTAINER "Dirk Stichling <mytracks@mytracks4mac.com>"
 
-ENV FRIENDLY_NAME "ReadyMedia"
+RUN apk add --no-cache minidlna
+
+ENV FRIENDLY_NAME "My ReadyMedia Server"
 ENV TCP_PORT "8200"
-ENV SERIAL "681019810597110"
-
-RUN apt-get update && apt-get install -y \
-        software-properties-common \
-        libexif12 \
-        libjpeg62 \
-        libid3tag0 \
-        libflac8 \
-        libvorbisfile3 \
-        sqlite3 \
-        libavformat53 \
-        libuuid1 \
-        curl \
-        && rm -rf /var/lib/apt/lists/*
-
-RUN cd /tmp \
-    && curl -L -O https://sourceforge.net/projects/minidlna/files/minidlna/1.2.1/minidlna-1.2.1.tar.gz \
-    && tar zxvf minidlna-1.2.1.tar.gz \
-    && ./configure \
-    && make \
-    && make install \
-    && rm -rf minidlna-1.2.1 \
-    && rm minidlna-1.2.1.tar.gz
+ENV SERIAL "1234567890"
 
 COPY minidlna.conf /etc/minidlna.conf
-COPY start.sh /start.sh
+COPY start.sh /
 
 CMD /start.sh

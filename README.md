@@ -19,9 +19,9 @@ You can configure the container using the following environment variables:
 
 | Environment Variable  | Description | Default Value |
 | ------------- | ------------- | ------------- |
-| `FRIENDLY_NAME`  | The user visible name of this instance. | `ReadyMedia` |
+| `FRIENDLY_NAME`  | The user visible name of this instance. | `My ReadyMedia Server` |
 | `TCP_PORT`  | The TCP port used by the service.  | `8200` |
-| `SERIAL`  | An arbitrary number for this instance.  | `681019810597110` |
+| `SERIAL`  | An arbitrary number for this instance.  | `1234567890` |
 | `VIDEO_DIR[1-9]`  | Path to a directory containing video files  |  |
 | `AUDIO_DIR[1-9]`  | Path to a directory containing audio files  |  |
 | `PICTURES_DIR[1-9]`  | Path to a directory containing picture files  |  |
