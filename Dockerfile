@@ -1,6 +1,10 @@
 FROM ubuntu:16.04
 LABEL MAINTAINER "Dirk Stichling <mytracks@mytracks4mac.com>"
 
+ENV FRIENDLY_NAME "ReadyMedia"
+ENV TCP_PORT "8200"
+ENV SERIAL "681019810597110"
+
 RUN apt-get update && apt-get install -y \
         software-properties-common \
         libexif12 \
@@ -24,5 +28,6 @@ RUN cd /tmp \
     && rm minidlna-1.2.1.tar.gz
 
 COPY minidlna.conf /etc/minidlna.conf
+COPY start.sh /start.sh
 
-CMD /usr/sbin/minidlnad -d -R
+CMD /start.sh
